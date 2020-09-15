@@ -1,6 +1,6 @@
 FROM fedora:30
 
-LABEL maintainer="kaz@praqma.net heh@praqma.net"
+LABEL maintainer="zhiyong.lin@shdsd.com"
 
 
 # Why Fedora as base OS?
@@ -29,7 +29,7 @@ LABEL maintainer="kaz@praqma.net heh@praqma.net"
 # ------------------
 # The value for CONFLUENCE_VERSION should be a version number, which is part of the name of the confluence software bin/tarball/zip.
 # ENV CONFLUENCE_VERSION 6.15.4
-ENV CONFLUENCE_VERSION 7.1.0
+ENV CONFLUENCE_VERSION 7.4.3
 
 # OS_USERNAME:
 # -----------
@@ -65,7 +65,7 @@ ENV CONFLUENCE_INSTALL /opt/atlassian/confluence
 # Actual management of timezone is handled in the docker-entrypoint.sh,
 #   but it is important for it to specidied in image, or passed to the container.
 # TimeZone is set in a non-so-straightforward way, for certain reason.
-ENV TZ_FILE "/usr/share/zoneinfo/Europe/Oslo"
+ENV TZ_FILE "/usr/share/zoneinfo/Asis/Shanghai"
 
 # JAVA_HOME:
 # ---------
@@ -86,7 +86,7 @@ ENV JAVA_HOME /opt/atlassian/confluence/jre
 # You can use this to setup internationalization options and also any Java memory settings.
 # It is a good idea to use same value for -Xms and -Xmx to avoid frequence shrinking and expanding of Java memory.
 # In the example below it is set to 1 GB. It should always be half (or less) of physical RAM of the server/node/pod/container.
-ENV CATALINA_OPTS "-Dfile.encoding=UTF-8 -Xms1024m -Xmx1024m"
+ENV CATALINA_OPTS "-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -Xms1024m -Xmx1024m"
 
 # ENABLE_CERT_IMPORT:
 # ------------------ 
