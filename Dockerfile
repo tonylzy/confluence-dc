@@ -29,7 +29,7 @@ LABEL maintainer="zhiyong.lin@shdsd.com"
 # ------------------
 # The value for CONFLUENCE_VERSION should be a version number, which is part of the name of the confluence software bin/tarball/zip.
 # ENV CONFLUENCE_VERSION 6.15.4
-ENV CONFLUENCE_VERSION 7.4.3
+ENV CONFLUENCE_VERSION 5.7.4
 
 # OS_USERNAME:
 # -----------
