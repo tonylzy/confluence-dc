@@ -204,6 +204,8 @@ ENV CONFLUENCE_DATACENTER_SHARE /mnt/shared
 
 COPY confluence-response.varfile /tmp/
 
+COPY mysql-connector-java-5.1.48.jar /tmp/
+
 ENV CONFLUENCE_DOWNLOAD_LOCATION https://www.atlassian.com/software/confluence/downloads/binary
 
 
@@ -247,7 +249,9 @@ RUN  echo -e "LANG=\"en_US.UTF-8\" \n LC_ALL=\"en_US.UTF-8\"" > /etc/sysconfig/i
   && tar xvf ./OpenJDK8U-jre_x64_linux_hotspot_8u265b01.tar.gz -C /opt/atlassian/confluence \
   && sync \
   && mv /opt/atlassian/confluence/jdk8u265-b01-jre /opt/atlassian/confluence/jre \
-  && sync
+  && sync \
+  && cp /tmp/mysql-connector-java-5.1.48.jar /opt/atlassian/confluence/confluence/WEB-INF/lib \
+  && sync \
   
 # PLUGINS_FILE (Confluence plugins):
 # ----------------------------------
