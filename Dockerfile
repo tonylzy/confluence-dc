@@ -239,8 +239,16 @@ RUN  echo -e "LANG=\"en_US.UTF-8\" \n LC_ALL=\"en_US.UTF-8\"" > /etc/sysconfig/i
   && sync \
   && if [ -n "${SSL_CERTS_PATH}" ] && [ ! -d "${SSL_CERTS_PATH}" ]; then mkdir -p ${SSL_CERTS_PATH}; fi \
   && if [ -n "${SSL_CERTS_PATH}" ] && [ -d "${SSL_CERTS_PATH}" ]; then chown ${OS_USERNAME}:${OS_GROUPNAME} ${SSL_CERTS_PATH}; fi \
+  && sync \
+  && curl -# -L -O https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u265-b01/OpenJDK8U-jre_x64_linux_hotspot_8u265b01.tar.gz \
+  && sync \
+  && rm -rf /opt/atlassian/confluence/jre \
+  && sync \
+  && tar xvf ./OpenJDK8U-jre_x64_linux_hotspot_8u265b01.tar.gz -C /opt/atlassian/confluence \
+  && sync \
+  && mv /opt/atlassian/confluence/jdk8u265-b01-jre /opt/atlassian/confluence/jre \
   && sync
-
+  
 # PLUGINS_FILE (Confluence plugins):
 # ----------------------------------
 # Any additional confluence plugins you need to install should be listed in file named `confluence-plugins.list` - one at each line.
