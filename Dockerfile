@@ -251,7 +251,7 @@ RUN  echo -e "LANG=\"en_US.UTF-8\" \n LC_ALL=\"en_US.UTF-8\"" > /etc/sysconfig/i
   && mv /opt/atlassian/confluence/jdk8u265-b01-jre /opt/atlassian/confluence/jre \
   && sync \
   && cp /tmp/mysql-connector-java-5.1.48.jar /opt/atlassian/confluence/confluence/WEB-INF/lib \
-  && sync \
+  && sync
   
 # PLUGINS_FILE (Confluence plugins):
 # ----------------------------------
