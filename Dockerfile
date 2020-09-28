@@ -29,7 +29,7 @@ LABEL maintainer="zhiyong.lin@shdsd.com"
 # ------------------
 # The value for CONFLUENCE_VERSION should be a version number, which is part of the name of the confluence software bin/tarball/zip.
 # ENV CONFLUENCE_VERSION 6.15.4
-ENV CONFLUENCE_VERSION 5.10.9
+ENV CONFLUENCE_VERSION 7.4.4
 
 # OS_USERNAME:
 # -----------
@@ -86,7 +86,7 @@ ENV JAVA_HOME /opt/atlassian/confluence/jre
 # You can use this to setup internationalization options and also any Java memory settings.
 # It is a good idea to use same value for -Xms and -Xmx to avoid frequence shrinking and expanding of Java memory.
 # In the example below it is set to 1 GB. It should always be half (or less) of physical RAM of the server/node/pod/container.
-ENV CATALINA_OPTS "-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -Xms1024m -Xmx1024m"
+ENV CATALINA_OPTS "-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -Xms2048m -Xmx2048m"
 
 # ENABLE_CERT_IMPORT:
 # ------------------ 
@@ -114,7 +114,7 @@ ENV DATACENTER_MODE false
 # If it does not exist, then it will be created and chown to the confluence OS user.
 # NB: FOr this to work, DATACENTER_MODE should be set to true.
 # ENV CONFLUENCE_DATACENTER_SHARE /var/atlassian/confluence-datacenter
-ENV CONFLUENCE_DATACENTER_SHARE /mnt/shared
+ENV CONFLUENCE_DATACENTER_SHARE /sharedHome
 
 # CLUSTER_PEER_IPS:
 # ----------------
